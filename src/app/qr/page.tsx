@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './page.module.css';
+import styles from './qr.module.css';
 import {
   Box,
   Button,
@@ -19,8 +19,8 @@ import { useFormik } from 'formik';
 import { ChangeEvent, useState } from 'react';
 import * as yup from 'yup';
 import { useRouter } from 'next/navigation';
-import { useNotificationContext } from './context/NotificationContext';
-import Input from './components/Input';
+import Input from '../components/Input';
+import { useNotificationContext } from '../context/NotificationContext';
 
 const unitData = [
   'VPCT3',
@@ -45,7 +45,7 @@ const validationSchema = yup.object({
     .max(50, 'Không được vượt quá 50 ký tự!'),
 });
 
-export default function Home() {
+export default function QR() {
   const router = useRouter();
   const { showNotification } = useNotificationContext();
 

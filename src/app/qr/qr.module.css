@@ -1,6 +1,6 @@
 .page {
   height: 100vh;
-  background-image: url('../../public/backdrop3.png');
+  background-image: url('../../../public/backdrop3.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
