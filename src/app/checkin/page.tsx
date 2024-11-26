@@ -9,6 +9,7 @@ import {
   Select,
   SelectChangeEvent,
   SxProps,
+  TextField,
   Theme,
   Typography,
 } from '@mui/material';
@@ -100,7 +101,7 @@ export default function Checkin() {
         <Box
           sx={{
             position: 'absolute',
-            top: '44%',
+            top: '50%',
             width: '98%',
             p: 2,
             mx: 'auto',
@@ -118,13 +119,16 @@ export default function Checkin() {
             }}>
             checkin và lấy số may mắn
           </Typography>
-          <FormControl
-            sx={formControlStyle}
-            size='small'
-            margin='dense'
-            fullWidth>
-            <Input
-              label='Họ và tên'
+          <FormControl sx={{}} size='small' margin='dense' fullWidth>
+            <input
+              style={{
+                width: '100%',
+                height: '48px',
+                padding: '12px 16px',
+              }}
+              placeholder='Họ và tên'
+            />
+            {/* <Input
               name='name'
               variant='filled'
               size='small'
@@ -135,9 +139,9 @@ export default function Checkin() {
               }
               onChange={handleChange}
               value={formik?.values?.name}
-            />
+            /> */}
           </FormControl>
-          <FormControl sx={formControlStyle} margin='dense' fullWidth>
+          <FormControl sx={{}} margin='dense' fullWidth>
             {/* <InputLabel id='demo-simple-select-label'>Đơn vị</InputLabel> */}
             <Select
               sx={selectStyle}
@@ -184,13 +188,6 @@ const selectStyle: SxProps<Theme> = {
   bgcolor: '#fff',
   textAlign: 'start',
   height: 48,
-};
-
-const formControlStyle: SxProps<Theme> = {
-  borderRadius: 1,
-  '.MuiInputBase-input': {
-    bgcolor: '#fff',
-  },
 };
 
 const containerStyle: SxProps<Theme> = {

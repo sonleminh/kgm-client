@@ -15,7 +15,8 @@ export default function Code() {
           borderRadius: 2,
           textAlign: 'center',
         }}>
-        <Typography sx={{ color: '#fff' }}>Chào mừng anh</Typography>
+        <Typography sx={{ color: '#fff' }}>Chào mừng anh Tuan</Typography>
+        <Typography sx={{ color: '#fff' }}>Ma so du thuong: 69</Typography>
       </Box>
     </Box>
   );
