@@ -2,6 +2,7 @@
   "name": "kgm-qr-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://c3.mobifone.vn/checkin/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
