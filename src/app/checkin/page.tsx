@@ -1,25 +1,21 @@
 'use client';
 
-import styles from './page.module.css';
 import {
   Box,
   Button,
   FormControl,
   FormHelperText,
-  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
   SxProps,
-  TextField,
   Theme,
   Typography,
 } from '@mui/material';
 import { useFormik } from 'formik';
-import { ChangeEvent, useState } from 'react';
-import * as yup from 'yup';
 import { useRouter } from 'next/navigation';
-import { useNotificationContext } from '../../app/context/NotificationContext';
+import { ChangeEvent } from 'react';
+import * as yup from 'yup';
 import Input from '../components/Input';
 
 const unitData = [
@@ -47,7 +43,6 @@ const validationSchema = yup.object({
 
 export default function Checkin() {
   const router = useRouter();
-  const { showNotification } = useNotificationContext();
 
   const formik = useFormik({
     initialValues: { name: '', unit: '' },
@@ -76,8 +71,8 @@ export default function Checkin() {
         if (res?.name) {
           router.push('/qr');
         }
-      } catch (error: any) {
-        showNotification(error?.message, 'error');
+      } catch (error) {
+        // showNotification(error?.message, 'error');
         console.error('Network error:', error);
       }
     },
@@ -94,8 +89,14 @@ export default function Checkin() {
   };
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <Box sx={containerStyle}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '32px',
+          gridRowStart: 2,
+        }}>
         <Box
           sx={{
             position: 'absolute',
@@ -169,9 +170,8 @@ export default function Checkin() {
             Gửi
           </Button>
         </Box>
-      </main>
-      <footer className={styles.footer}></footer>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
@@ -191,4 +191,13 @@ const formControlStyle: SxProps<Theme> = {
   '.MuiInputBase-input': {
     bgcolor: '#fff',
   },
+};
+
+const containerStyle: SxProps<Theme> = {
+  height: '100vh',
+  backgroundImage:
+    'url("https://firebasestorage.googleapis.com/v0/b/geardn-a6c28.appspot.com/o/backdrop3.png?alt=media&token=ffc20fda-6015-46bc-8d43-b0aad14b1494")',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
 };
